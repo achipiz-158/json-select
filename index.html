@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+  <head>
+    <meta charset="utf-8">
+    <title>Json & Jquery</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Json & Jquery</h1>
+
+    <select id="usuarios"></select> 
+
+
+    <script type="text/javascript">
+
+    $(document).on('ready',function (){
+
+      $.getJSON('usuarios.json', function(data) {
+        $.each(data, function(key, value) {
+          $("#usuarios").append('<option name="' + key + '">' + value + '</option>');
+        }); // close each()
+      }); // close getJSON()
+    });
+
+    </script>
+  </body>
+</html>
